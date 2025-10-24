@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Hari Jadi Gana Arunika!</title>
+    <title>Selamat Hari Jadi Ekskul Gana Arunika!</title>
     
     <!-- Memuat Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,12 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Mengatur font default ke Poppins */
+        /* Default font */
         body {
             font-family: 'Poppins', sans-serif;
         }
         
-        /* Font kustom untuk judul */
+        /* Custom script font */
         .font-pacifico {
             font-family: 'Pacifico', cursive;
         }
@@ -32,7 +32,7 @@
         }
         
         .animated-gradient {
-            background-size: 400% 400%; /* Membuat gradasi lebih besar agar bisa bergerak */
+            background-size: 400% 400%;
             animation: gradientMove 15s ease infinite;
         }
 
@@ -49,8 +49,8 @@
         }
         
         .animate-fade-in-up {
-            opacity: 0; /* Mulai dari transparan */
-            animation: fadeInUp 0.8s ease-out forwards; /* 'forwards' agar tetap di state akhir */
+            opacity: 0; 
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         /* 3. Animasi untuk Ikon (Berdenyut) */
@@ -69,6 +69,31 @@
             animation: iconPulse 2.5s ease-in-out infinite;
         }
 
+        /* 4. Animasi untuk Slideshow (4 GAMBAR) */
+        @keyframes slide {
+            /* Total 4 gambar. Total durasi 20s. 5s per gambar (3s tahan, 2s transisi) */
+            0%   { transform: translateX(0%); }     /* Tahan Gbr 1 */
+            20%  { transform: translateX(0%); }     /* Tahan Gbr 1 (4s) */
+            25%  { transform: translateX(-100%); } /* Geser ke Gbr 2 (1s) */
+            45%  { transform: translateX(-100%); } /* Tahan Gbr 2 (4s) */
+            50%  { transform: translateX(-200%); } /* Geser ke Gbr 3 (1s) */
+            70%  { transform: translateX(-200%); } /* Tahan Gbr 3 (4s) */
+            75%  { transform: translateX(-300%); } /* Geser ke Gbr 4 (1s) */
+            95%  { transform: translateX(-300%); } /* Tahan Gbr 4 (4s) */
+            100% { transform: translateX(0%); }     /* Kembali ke Gbr 1 (1s) */
+        }
+
+        .slideshow-track {
+            display: flex;
+            width: 400%; /* DIPERBARUI: 100% * 4 gambar */
+            animation: slide 20s ease-in-out infinite; /* DIPERBARUI: Durasi jadi 20s */
+        }
+
+        .slideshow-track > img {
+            width: 25%; /* DIPERBARUI: 100% / 4 gambar */
+            height: 240px; /* h-60 */
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-blue-300 via-sky-400 to-indigo-600 min-h-screen flex items-center justify-center p-4 sm:p-6 animated-gradient">
@@ -76,9 +101,6 @@
     <!-- 
       Kartu Vertikal (max-w-md)
       Efek "Glassmorphism" (Kaca Buram)
-      bg-white/70 -> Latar belakang putih transparan 70%
-      backdrop-blur-xl -> Efek blur pada elemen di belakangnya
-      border-white/20 -> Garis tepi putih transparan
     -->
     <div class="w-full max-w-md bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/20">
         
@@ -97,7 +119,7 @@
             
             <!-- Nama Ekskul (Animasi Fade In) -->
             <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 leading-tight animate-fade-in-up" style="animation-delay: 0.6s;">
-                Gana Arunika
+                Ekskul Gana Arunika
             </h2>
             
             <!-- Afiliasi Sekolah (Animasi Fade In) -->
@@ -112,9 +134,46 @@
             
             <!-- Penutup (Animasi Fade In) -->
             <div class="mt-4 animate-fade-in-up" style="animation-delay: 1.2s;">
-                <span class="text-indigo-600 text-sm italic font-semibold">#SALAM SATU BARISAN</span>
+                <span class="text-indigo-600 text-sm italic font-semibold">Maju Terus & Jaya Selalu!</span>
             </div>
         </div>
+
+        <!-- 
+          Bagian Slideshow Foto
+          Ditempatkan di bawah semua tulisan.
+        -->
+        <div classka="w-full animate-fade-in-up" style="animation-delay: 1.4s;">
+            <!-- Kontainer untuk 'overflow: hidden' -->
+            <div class="slideshow-container w-full overflow-hidden">
+                <!-- Track yang berisi semua gambar (lebar 400%) -->
+                <div class="slideshow-track">
+                    <!-- 
+                      LINK FOTO BARU DIMASUKKAN DI SINI
+                    -->
+                    <img 
+                        src="https://o.uguu.se/AWDBgWGG.jpg" 
+                        alt="Foto Gana Arunika 1"
+                        onerror="this.src='https://placehold.co/600x400/3B82F6/FFFFFF?text=Foto+1'"
+                    >
+                    <img 
+                        src="https://o.uguu.se/XEiNRXLl.jpg" 
+                        alt="Foto Gana Arunika 2"
+                        onerror="this.src='https://placehold.co/600x400/60A5FA/FFFFFF?text=Foto+2'"
+                    >
+                    <img 
+                        src="https://h.uguu.se/SEdTFfKi.jpg" 
+                        alt="Foto Gana Arunika 3"
+                        onerror="this.src='https://placehold.co/600x400/1D4ED8/FFFFFF?text=Foto+3'"
+                    >
+                    <img 
+                        src="https://h.uguu.se/WNySmBFs.jpg" 
+                        alt="Foto Gana Arunika 4"
+                        onerror="this.src='https://placehold.co/600x400/1E3A8A/FFFFFF?text=Foto+4'"
+                    >
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
